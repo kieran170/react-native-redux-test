@@ -188,6 +188,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 30,
     alignItems: "flex-end",
+    paddingLeft: 5,
   },
   button: {
     width: "30%",
