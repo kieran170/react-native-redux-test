@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "80%",
+    height: "60%",
   },
 });
 

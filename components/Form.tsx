@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -31,12 +31,6 @@ const Form = () => {
 
     if (isValid) {
       dispatch(setProfile(data));
-      setData({
-        firstName: "",
-        lastName: "",
-        age: "",
-        didClick: false,
-      });
     } else {
       setError("Nope!");
     }
@@ -50,6 +44,17 @@ const Form = () => {
 
     setData((prev) => ({ ...prev, [field]: value }));
   };
+
+  useEffect(() => {
+    if (!isProfileComplete) {
+      setData({
+        firstName: "",
+        lastName: "",
+        age: "",
+        didClick: false,
+      });
+    }
+  }, [isProfileComplete]);
 
   return (
     <View style={styles.formContainer}>
@@ -203,7 +208,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "80%",
+    height: "60%",
   },
 });
 
