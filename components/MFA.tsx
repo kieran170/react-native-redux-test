@@ -145,8 +145,13 @@ const MFAInput = () => {
                 <TouchableOpacity onPress={handleSubmit} style={styles.button}>
                   <Text style={styles.buttonText}>Submit</Text>
                 </TouchableOpacity>
-                {error ? <Text style={{ marginTop: 24 }}>{error}</Text> : null}
               </View>
+
+              {error ? (
+                <View style={styles.errorContainer}>
+                  <Text style={{ marginTop: 24, color: "red" }}>{error}</Text>
+                </View>
+              ) : null}
             </View>
             <View style={styles.otpContainer}>
               <Text style={styles.text}>{otpToEnter}</Text>
@@ -261,6 +266,10 @@ const styles = StyleSheet.create({
   otpContainer: {
     height: "20%",
     justifyContent: "center",
+    alignItems: "center",
+  },
+  errorContainer: {
+    width: "100%",
     alignItems: "center",
   },
 });
